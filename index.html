@@ -1309,7 +1309,7 @@ body{
 
 <!-- AUDIO ENGINE -->
 <!-- 🎵 Replace the src below with your own MP3/song URL or base64 audio -->
-<audio id="bgAudio" loop preload="auto">
+<audio id="bgAudio" loop preload="auto" autoplay muted>
   <source src="audio/pacha.mp3" type="audio/mpeg">
 </audio>
 
@@ -1935,9 +1935,27 @@ setInterval(spawnPetal, 1200);
     } else {
       pill.classList.remove('playing');
       pill.classList.add('paused');
-      label.textContent = '♪ Paused';
+      label.textContent = playing === 'initial' ? '🎵 Tap me' : '♪ Paused';
     }
   }
+  
+  // Initialize with "Tap me" label
+  label.textContent = '🎵 Tap me';
+  
+  // Expose global function to start audio after loader
+  window.startAudio = function() {
+    audio.muted = false;
+    audio.play().then(() => {
+      setPlaying(true);
+      audio.volume = 0;
+      const fade = setInterval(() => {
+        if (audio.volume < 0.48) audio.volume += 0.04;
+        else { audio.volume = 0.5; clearInterval(fade); }
+      }, 80);
+    }).catch(() => {
+      // Autoplay blocked
+    });
+  };
 
   function toggleAudio() {
     if (playing) {
@@ -1948,6 +1966,7 @@ setInterval(spawnPetal, 1200);
       }, 80);
       setPlaying(false);
     } else {
+      audio.muted = false;  // Unmute when playing
       audio.volume = 0;
       audio.play().then(() => {
         setPlaying(true);
@@ -1956,7 +1975,8 @@ setInterval(spawnPetal, 1200);
           if (audio.volume < 0.48) audio.volume += 0.04;
           else { audio.volume = 0.5; clearInterval(fade); }
         }, 80);
-      }).catch(() => {
+      }).catch((err) => {
+        console.log('Audio play error:', err);
         label.textContent = '⚠ Tap Again';
       });
     }
