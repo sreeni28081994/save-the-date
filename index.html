@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Vaishnavi & Sreenivas — Save the Date · June 21, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --bg:       #0b1a10;
+  --bg2:      #0f2218;
+  --bg3:      #122b1e;
+  --card:     #162d1f;
+  --green:    #1e7a45;
+  --green-l:  #27ae60;
+  --green-p:  #82d4a6;
+  --gold:     #c8a84b;
+  --gold-l:   #e8d07a;
+  --red:      #c0392b;
+  --red-l:    #e74c3c;
+  --red-p:    #f1948a;
+  --ivory:    #fdf8f0;
+  --muted:    rgba(253,248,240,0.55);
+}
+
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+body{
+  background:var(--bg);
+  color:var(--ivory);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+  max-width:480px;
+  margin:0 auto;
+  position:relative;
+}
+
+/* ── HEART REVEAL OVERLAY ── */
+#heartReveal{
+  position:fixed;
+  inset:0;
+  z-index:8500;
+  background:var(--bg);
+  /* Heart clip-path — starts as tiny heart at center */
+  clip-path:polygon(
+    50% 30%, 50% 30%, 50% 30%, 50% 30%,
+    50% 30%, 50% 30%, 50% 30%, 50% 30%
+  );
+  pointer-events:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+/* The heart that punches through — using SVG clip */
+#heartRevealSvg{
+  position:fixed;
+  inset:0;
+  z-index:8500;
+  pointer-events:none;
+  opacity:1;
+  transition:opacity 0.5s ease;
+}
+#heartRevealSvg.done{ opacity:0; pointer-events:none; }
+
+/* Heart canvas overlay */
+#heartCanvas{
+  position:fixed;
+  inset:0;
+  z-index:8500;
+  pointer-events:none;
+}
+
+
+/* ── SECTIONS ── */
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  scroll-snap-align:start;
+  padding:60px 24px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;
+  letter-spacing:0.5em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:16px;
+  opacity:0;
+  transform:translateY(12px);
+  transition:all 0.7s ease;
+}
+.eyebrow.show{opacity:1;transform:translateY(0);}
+
+/* ─────────────────────────────
+   SECTION 1: MONOGRAM HERO
+───────────────────────────── */
+#s1{
+  background:var(--bg);
+  min-height:100vh;
+  justify-content:center;
+}
+.monogram-wrap{
+  text-align:center;
+  position:relative;
+}
+.monogram-bg{
+  position:absolute;
+  inset:-60px;
+  background:radial-gradient(ellipse at center,rgba(39,174,96,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.mono-initials{
+  font-family:'Cinzel',serif;
+  font-size:clamp(5rem,20vw,8rem);
+  font-weight:400;
+  letter-spacing:0.15em;
+  color:var(--ivory);
+  line-height:1;
+  opacity:0;
+  transform:scale(0.85);
+  transition:all 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.mono-initials.show{opacity:1;transform:scale(1);}
+.mono-amp{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.5rem,10vw,4rem);
+  color:var(--gold);
+  vertical-align:middle;
+  margin:0 0.1em;
+}
+.mono-line{
+  width:0;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:20px auto;
+  transition:width 1.4s ease 0.5s;
+}
+.mono-line.show{width:200px;}
+.mono-sub{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.5em;
+  color:var(--green-p);
+  text-transform:uppercase;
+  opacity:0;
+  transition:opacity 0.8s ease 1s;
+}
+.mono-sub.show{opacity:1;}
+.scroll-down{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  opacity:0;
+  animation:fadeIn 1s ease 2s forwards;
+}
+.scroll-down-line{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom,transparent,var(--green-l));
+  animation:pulse 2s ease-in-out infinite;
+}
+.scroll-down span{
+  font-family:'Cinzel',serif;
+  font-size:0.55rem;
+  letter-spacing:0.4em;
+  color:var(--green-l);
+}
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+/* ─────────────────────────────
+   SECTION 2: MAIN INVITE
+───────────────────────────── */
+#s2{
+  background:var(--bg2);
+  text-align:center;
+  padding:80px 24px;
+  position:relative;
+}
+.side-bar{
+  position:absolute;
+  top:0;bottom:0;width:5px;
+  background:linear-gradient(to bottom,transparent,var(--red),transparent);
+}
+.side-bar.left{left:0;}
+.side-bar.right{right:0;}
+
+.invite-pre{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;
+  letter-spacing:0.5em;
+  color:var(--gold);
+  text-transform:uppercase;
+  line-height:1.8;
+  margin-bottom:28px;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.7s ease;
+}
+.invite-pre.show{opacity:1;transform:translateY(0);}
+
+.invite-names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(4rem,16vw,6.5rem);
+  font-weight:400;
+  line-height:1.05;
+  background:linear-gradient(135deg, #fdf8f0 0%, #e8d07a 40%, #c8a84b 70%, #fdf8f0 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  background-size:200% 200%;
+  animation:nameShimmer 4s ease infinite;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.9s ease 0.2s;
+  text-shadow:none;
+  filter:drop-shadow(0 2px 12px rgba(200,168,75,0.25));
+}
+@keyframes nameShimmer{
+  0%,100%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+}
+.invite-names.show{opacity:1;transform:translateY(0);}
+.invite-names .amp{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.5rem,10vw,4rem);
+  -webkit-text-fill-color:var(--green-l);
+  color:var(--green-l);
+  display:block;
+  margin:-4px 0;
+  filter:drop-shadow(0 0 10px rgba(39,174,96,0.4));
+  animation:none;
+}
+
+.invite-date{
+  font-family:'Cinzel',serif;
+  font-size:clamp(0.7rem,2.5vw,0.9rem);
+  letter-spacing:0.3em;
+  color:var(--gold-l);
+  margin-top:24px;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.7s ease 0.4s;
+}
+.invite-date.show{opacity:1;transform:translateY(0);}
+.invite-loc{
+  font-family:'Cinzel',serif;
+  font-size:clamp(0.65rem,2.2vw,0.8rem);
+  letter-spacing:0.4em;
+  color:var(--green-p);
+  margin-top:8px;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.7s ease 0.55s;
+}
+.invite-loc.show{opacity:1;transform:translateY(0);}
+
+.date-underline{
+  width:0;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:14px auto 0;
+  transition:width 1s ease 0.6s;
+}
+.date-underline.show{width:140px;}
+
+/* Scratch card */
+.scratch-wrap{
+  width:100%;max-width:340px;
+  margin:36px auto 0;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.8s ease 0.7s;
+  position:relative;
+}
+.scratch-wrap.show{opacity:1;transform:translateY(0);}
+
+.scratch-hint{
+  text-align:center;
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;letter-spacing:0.4em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:10px;
+  animation:hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+
+.scratch-card-container{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:16px;
+  overflow:hidden;
+  border:2px solid rgba(200,168,75,0.35);
+  box-shadow:0 8px 40px rgba(0,0,0,0.5);
+  cursor:crosshair;
+  touch-action:none;
+}
+
+/* Revealed photo underneath */
+.scratch-reveal{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#1a4d2e 0%,#0d2b18 40%,#2d0f0a 100%);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:12px;
+}
+.reveal-photo{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.reveal-placeholder-text{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;
+  color:rgba(200,168,75,0.6);
+  text-align:center;
+}
+
+/* Scratch canvas on top */
+#scratchCanvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border-radius:14px;
+  touch-action:none;
+}
+
+.scratch-done-msg{
+  text-align:center;
+  margin-top:12px;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1rem;color:var(--gold);
+  opacity:0;transition:opacity 0.8s ease;
+}
+.scratch-done-msg.show{opacity:1;}
+
+/* ─────────────────────────────
+   SECTION 3: FAMILY / STORY
+───────────────────────────── */
+#s3{
+  background:var(--bg);
+  text-align:center;
+}
+.royal-title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.8rem,10vw,4.5rem);
+  line-height:1.2;
+  background:linear-gradient(135deg,#fdf8f0,#e8d07a,#c8a84b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:20px;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.9s ease 0.1s;
+  filter:drop-shadow(0 2px 10px rgba(200,168,75,0.2));
+}
+.royal-title.show{opacity:1;transform:translateY(0);}
+
+.heart-divider{
+  display:flex;align-items:center;gap:12px;
+  justify-content:center;
+  margin:20px 0 32px;
+  opacity:0;transition:opacity 0.7s ease 0.4s;
+}
+.heart-divider.show{opacity:1;}
+.hdl{flex:1;max-width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold));}
+.hdr{flex:1;max-width:80px;height:1px;background:linear-gradient(to left,transparent,var(--gold));}
+.heart-icon{color:var(--gold);font-size:1.2rem;}
+
+.family-block{
+  margin-top:8px;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.7s ease;
+}
+.family-block.show{opacity:1;transform:translateY(0);}
+.family-label{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;letter-spacing:0.5em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.family-name{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.8rem,10vw,4rem);
+  background:linear-gradient(135deg,#fdf8f0,#e8d07a,#c8a84b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.1;
+  filter:drop-shadow(0 2px 8px rgba(200,168,75,0.2));
+}
+.family-of{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;letter-spacing:0.4em;
+  color:var(--green-p);text-transform:uppercase;
+  margin:10px 0 6px;
+}
+.family-parents{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,3.5vw,1.2rem);
+  font-style:italic;
+  color:var(--muted);line-height:1.6;
+}
+
+.and-divider{
+  margin:28px auto;
+  width:40px;height:40px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Great Vibes',cursive;
+  font-size:1.4rem;color:var(--gold);
+  opacity:0;
+  transition:opacity 0.6s ease 0.5s,transform 0.6s ease 0.5s;
+  transform:scale(0.5);
+}
+.and-divider.show{opacity:1;transform:scale(1);}
+
+/* ─────────────────────────────
+   SECTION 4: GALLERY
+───────────────────────────── */
+#s4{
+  background:#0e2616;
+  padding:60px 0 80px;
+  align-items:stretch;
+}
+/* Fairy lights */
+.lights-bar{
+  width:100%;
+  padding:0 10px;
+  position:relative;
+  height:60px;
+  overflow:visible;
+}
+.lights-wire{
+  position:absolute;
+  top:12px;left:0;right:0;
+  height:1px;
+  background:rgba(200,168,75,0.2);
+  transition:background 0.5s ease;
+}
+.lights-wire.on{ background:rgba(200,168,75,0.5); }
+.light-bulb{
+  position:absolute;
+  top:6px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.light-string{width:1px;height:10px;background:rgba(200,168,75,0.3);transition:background 0.3s;}
+.light-globe{
+  width:14px; height:17px;
+  border-radius:50% 50% 45% 45%;
+  background: #3a3a3a;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.6);
+  opacity: 0.45;
+  transition: background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+/* pop ON — triggered by JS adding class */
+.light-globe.pop {
+  opacity: 1;
+  transform: scale(1);
+}
+@keyframes bulbPop{
+  0%   { transform:scale(0.4); opacity:0.1; }
+  55%  { transform:scale(1.7); opacity:1;   }
+  100% { transform:scale(1);   opacity:1;   }
+}
+@keyframes glow{
+  from { opacity:0.8; }
+  to   { opacity:1;   }
+}
+.gallery-header{
+  text-align:center;
+  padding:0 24px;
+  margin-bottom:28px;
+}
+.gallery-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;letter-spacing:0.5em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:10px;
+  opacity:0;transition:opacity 0.7s ease;
+}
+.gallery-eyebrow.show{opacity:1;}
+.gallery-title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.8rem,10vw,4.2rem);
+  background:linear-gradient(135deg,#fdf8f0,#e8d07a,#c8a84b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.8s ease 0.2s;
+  filter:drop-shadow(0 2px 8px rgba(200,168,75,0.2));
+}
+.gallery-title.show{opacity:1;transform:translateY(0);}
+
+/* TAP ME button */
+.tap-me-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Cinzel',serif;font-size:0.62rem;
+  letter-spacing:0.35em;
+  color:var(--bg);
+  background:var(--gold);
+  border:none;border-radius:50px;
+  padding:14px 32px;margin-bottom:24px;
+  cursor:pointer;
+  opacity:1;
+  box-shadow:0 4px 20px rgba(200,168,75,0.35);
+  transition: transform 0.2s ease, background 0.4s ease, box-shadow 0.4s ease, color 0.3s ease;
+}
+.tap-me-btn:active{transform:scale(0.93);}
+.tap-me-btn.lights-on{
+  background:linear-gradient(135deg,#ffe066,#fff5a0,#ffe066);
+  color:#1a1000;
+  animation:btnGlow 1.5s ease-in-out infinite alternate;
+  box-shadow:0 0 30px 8px rgba(255,220,50,0.55);
+}
+@keyframes btnGlow{
+  from{box-shadow:0 0 20px 6px rgba(255,220,50,0.4);}
+  to{box-shadow:0 0 55px 20px rgba(255,220,50,0.8);}
+}
+.tap-bulb-icon{font-size:1.2rem;}
+.tap-me-btn.lights-on .tap-bulb-icon{animation:bulbWiggle 0.5s ease forwards;}
+@keyframes bulbWiggle{
+  0%,100%{transform:rotate(0) scale(1);}
+  30%{transform:rotate(-22deg) scale(1.5);}
+  70%{transform:rotate(22deg) scale(1.5);}
+}
+.flash-overlay{
+  position:fixed;inset:0;
+  background:rgba(255,248,150,0.55);
+  pointer-events:none;z-index:999;
+  opacity:0;transition:opacity 0.06s;
+}
+.flash-overlay.flash{opacity:1;}
+
+/* Polaroid scroll */
+.polaroid-track{
+  display:flex;
+  gap:16px;
+  padding:16px 24px 24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.polaroid-track::-webkit-scrollbar{display:none;}
+.polaroid{
+  flex-shrink:0;
+  width:220px;
+  background:var(--ivory);
+  padding:10px 10px 36px;
+  border-radius:2px;
+  scroll-snap-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
+  transform:rotate(var(--rot)) translateY(30px);
+  opacity:0;
+  transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1);
+}
+.polaroid.show{opacity:1;transform:rotate(var(--rot)) translateY(0);}
+.polaroid-img{
+  width:100%;aspect-ratio:1;
+  background:linear-gradient(135deg,var(--green) 0%,#1a4d2e 40%,var(--red) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;overflow:hidden;
+}
+.polaroid-caption{
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;font-style:italic;
+  color:#333;margin-top:10px;
+}
+
+/* ─────────────────────────────
+   SECTION 5: EVENTS
+───────────────────────────── */
+#s5{
+  background:var(--bg2);
+  padding:80px 24px;
+}
+.event-card{
+  width:100%;
+  background:var(--card);
+  border:1px solid rgba(200,168,75,0.2);
+  border-radius:16px;
+  padding:28px 24px;
+  margin-bottom:20px;
+  position:relative;
+  opacity:0;transform:translateY(24px);
+  transition:all 0.8s ease;
+}
+.event-card.show{opacity:1;transform:translateY(0);}
+.event-card:last-child{margin-bottom:0;}
+.event-heart{
+  position:absolute;
+  top:-16px;left:24px;
+  width:32px;height:32px;
+  background:var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;
+}
+.event-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:700;
+  color:var(--ivory);
+  margin-bottom:6px;margin-top:4px;
+}
+.event-datetime{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;letter-spacing:0.2em;
+  color:var(--gold);margin-bottom:14px;
+}
+.event-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;line-height:1.7;
+  color:var(--muted);margin-bottom:16px;
+}
+.event-venue{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem;color:var(--green-p);
+  padding-top:14px;
+  border-top:1px solid rgba(200,168,75,0.15);
+}
+.event-pin{font-size:0.9rem;}
+
+/* Save the date reveal */
+.save-date-banner{
+  width:100%;
+  background:linear-gradient(135deg,var(--green),var(--bg2));
+  border-radius:12px;
+  padding:32px 24px;
+  text-align:center;
+  margin-top:20px;
+  position:relative;
+  overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.8s ease 0.4s;
+}
+.save-date-banner.show{opacity:1;transform:translateY(0);}
+.save-date-banner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent,rgba(200,168,75,0.1));
+}
+.sdb-eye{
+  font-family:'Cinzel',serif;font-size:0.58rem;
+  letter-spacing:0.5em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.sdb-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,8vw,3rem);
+  font-style:italic;color:var(--ivory);
+}
+.calendar-btn{
+  margin-top:20px;
+  display:inline-block;
+  background:linear-gradient(135deg,var(--red),var(--red-l));
+  color:var(--ivory);
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;letter-spacing:0.3em;
+  text-transform:uppercase;
+  padding:14px 32px;
+  border-radius:50px;
+  border:none;cursor:pointer;
+  position:relative;z-index:1;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(192,57,43,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.calendar-btn:active{transform:scale(0.96);}
+
+/* ─────────────────────────────
+   SECTION 6: VENUE
+───────────────────────────── */
+#s6{background:var(--bg);padding:80px 24px;text-align:left;}
+.venue-eye{
+  font-family:'Cinzel',serif;font-size:0.58rem;
+  letter-spacing:0.5em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:16px;
+  opacity:0;transition:opacity 0.7s ease;
+}
+.venue-eye.show{opacity:1;}
+.venue-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,7vw,2.8rem);
+  font-style:italic;
+  color:var(--ivory);line-height:1.2;
+  margin-bottom:12px;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.8s ease 0.15s;
+}
+.venue-name.show{opacity:1;transform:translateY(0);}
+.venue-addr{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;color:var(--muted);
+  margin-bottom:28px;
+  opacity:0;transition:opacity 0.7s ease 0.3s;
+}
+.venue-addr.show{opacity:1;}
+.map-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);
+  color:var(--bg);
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;letter-spacing:0.3em;
+  text-transform:uppercase;
+  padding:14px 28px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  opacity:0;transition:opacity 0.7s ease 0.5s;
+  box-shadow:0 4px 20px rgba(200,168,75,0.3);
+}
+.map-btn.show{opacity:1;}
+
+/* Map placeholder */
+.map-placeholder{
+  width:100%;aspect-ratio:16/9;
+  background:var(--bg3);
+  border-radius:12px;
+  margin-top:24px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  border:1px solid rgba(200,168,75,0.15);
+  opacity:0;transition:opacity 0.8s ease 0.4s;
+  overflow:hidden;
+}
+.map-placeholder.show{opacity:1;}
+.map-placeholder iframe{width:100%;height:100%;border:0;filter:hue-rotate(120deg) saturate(0.5);}
+
+/* ─────────────────────────────
+   SECTION 7: RSVP
+───────────────────────────── */
+#s7{background:var(--bg2);padding:80px 24px;}
+.rsvp-card{
+  width:100%;
+  background:var(--card);
+  border:1px solid rgba(200,168,75,0.18);
+  border-radius:20px;
+  padding:40px 28px;
+  text-align:center;
+  opacity:0;transform:translateY(24px);
+  transition:all 0.9s ease;
+}
+.rsvp-card.show{opacity:1;transform:translateY(0);}
+.rsvp-label{
+  font-family:'Cinzel',serif;font-size:0.62rem;
+  letter-spacing:0.6em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.rsvp-title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.5rem,9vw,3.8rem);
+  color:var(--ivory);
+  line-height:1.2;margin-bottom:20px;
+}
+.rsvp-divider{
+  width:40px;height:1px;
+  background:var(--gold);
+  margin:0 auto 20px;
+}
+.rsvp-contact-label{
+  font-family:'Cinzel',serif;font-size:0.58rem;
+  letter-spacing:0.3em;color:var(--green-p);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.rsvp-contact-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-style:italic;
+  color:var(--ivory);margin-bottom:4px;
+}
+.rsvp-phone{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;color:var(--gold);
+  margin-bottom:24px;
+}
+.rsvp-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;font-style:italic;
+  color:var(--muted);
+  padding-top:20px;
+  border-top:1px solid rgba(200,168,75,0.15);
+  line-height:1.7;
+}
+
+/* ─────────────────────────────
+   COUNTDOWN FLOATER
+───────────────────────────── */
+.countdown-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  max-width:480px;margin:0 auto;
+  background:rgba(11,26,16,0.92);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(200,168,75,0.2);
+  padding:12px 24px;
+  display:flex;justify-content:space-around;
+  z-index:100;
+}
+.cd-unit{text-align:center;}
+.cd-n{
+  font-family:'Cinzel',serif;font-size:1.2rem;
+  font-weight:600;color:var(--gold-l);
+  display:block;line-height:1;
+}
+.cd-l{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.6rem;letter-spacing:0.3em;
+  color:var(--green-p);text-transform:uppercase;
+}
+.cd-div{
+  font-family:'Cinzel',serif;color:var(--red-l);
+  font-size:1rem;align-self:flex-start;margin-top:4px;opacity:0.5;
+}
+
+/* ─────────────────────────────
+   MUSIC PILL
+───────────────────────────── */
+.music-pill{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  background:rgba(22,45,31,0.92);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(200,168,75,0.3);
+  border-radius:50px;
+  padding:8px 18px;
+  display:flex;align-items:center;gap:10px;
+  z-index:8999;
+  font-family:'Cinzel',serif;
+  font-size:0.55rem;letter-spacing:0.3em;
+  color:var(--gold);text-transform:uppercase;
+  cursor:pointer;
+  user-select:none;
+  transition:border-color 0.3s, background 0.3s;
+}
+.music-pill.playing{
+  border-color:rgba(39,174,96,0.6);
+  background:rgba(22,45,31,0.96);
+}
+.music-pill.paused .music-bars .music-bar{
+  animation:none !important;
+  height:4px !important;
+}
+.music-pill.paused .music-dot{
+  background: var(--red-l) !important;
+  animation:none !important;
+}
+.music-dot{
+  width:8px;height:8px;
+  background:var(--green-l);border-radius:50%;
+  animation:musicPulse 1.5s ease-in-out infinite;
+}
+.music-bars{
+  display:flex;align-items:flex-end;gap:2px;height:14px;
+}
+.music-bar{
+  width:3px;background:var(--green-l);border-radius:2px;
+  animation:barDance 0.8s ease-in-out infinite alternate;
+}
+.music-bar:nth-child(1){height:6px;animation-delay:0s;}
+.music-bar:nth-child(2){height:12px;animation-delay:0.1s;}
+.music-bar:nth-child(3){height:8px;animation-delay:0.2s;}
+.music-bar:nth-child(4){height:14px;animation-delay:0.15s;}
+.music-bar:nth-child(5){height:6px;animation-delay:0.3s;}
+@keyframes musicPulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.3);}}
+@keyframes barDance{from{height:4px;}to{height:14px;}}
+
+/* ─────────────────────────────
+   MISC ANIMATIONS
+───────────────────────────── */
+.petal{
+  position:fixed;pointer-events:none;z-index:50;
+  animation:petalFall linear infinite;opacity:0;
+  font-size:clamp(10px,2vw,14px);
+}
+@keyframes petalFall{
+  0%{transform:translateY(-30px) rotate(0deg);opacity:0;}
+  10%{opacity:.7;}90%{opacity:.4;}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
+}
+
+/* ── INTRO LOADER ── */
+#introLoader{
+  position:fixed;inset:0;
+  background:#0b1a10;
+  z-index:9000;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+#introLoader.hide{opacity:0;visibility:hidden;pointer-events:none;}
+
+.intro-monogram{
+  font-family:'Cinzel',serif;
+  font-size:clamp(4rem,18vw,7rem);
+  font-weight:400;
+  letter-spacing:0.2em;
+  color:var(--ivory);
+  opacity:0;
+  transform:scale(0.8);
+  animation:introIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+  line-height:1;
+}
+.intro-monogram .i-amp{
+  font-family:'Great Vibes',cursive;
+  font-size:0.7em;
+  color:var(--gold);
+  vertical-align:middle;
+  margin:0 0.05em;
+}
+@keyframes introIn{
+  from{opacity:0;transform:scale(0.78) translateY(20px);}
+  to  {opacity:1;transform:scale(1)    translateY(0);}
+}
+
+.intro-sub{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;letter-spacing:0.55em;
+  color:var(--green-p);text-transform:uppercase;
+  margin-top:16px;
+  opacity:0;
+  animation:introFadeUp 0.8s ease 1s forwards;
+}
+@keyframes introFadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.intro-progress-fill{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  width:0%;
+  background:linear-gradient(to right, var(--green-l), var(--gold), var(--red-l));
+  border-radius:2px;
+  box-shadow:0 0 8px 2px rgba(200,168,75,0.4);
+  /* Pure CSS animation — always works, never stuck */
+  animation: fillBar 3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes fillBar {
+  0%   { width: 0%; }
+  30%  { width: 45%; }
+  65%  { width: 72%; }
+  85%  { width: 88%; }
+  100% { width: 100%; }
+}
+.intro-progress-pct{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+}
+.intro-progress-wrap{
+  margin-top:40px;
+  width:clamp(160px,50vw,220px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  opacity:0;
+  animation:introFadeUp 0.5s ease 0.8s forwards;
+}
+.intro-progress-track{
+  width:100%;
+  height:1px;
+  background:rgba(200,168,75,0.15);
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── LIGHT SWITCH ── */
+.switch-wrap{
+  display:flex;flex-direction:column;
+  align-items:center;gap:10px;
+  margin-bottom:28px;
+}
+.switch-label{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;letter-spacing:0.5em;
+  color:var(--gold);text-transform:uppercase;
+  opacity:0.7;
+}
+/* Switch plate */
+.switch-plate{
+  width:56px;height:90px;
+  background:linear-gradient(160deg,#1e3a28,#142a1c);
+  border-radius:8px;
+  border:2px solid rgba(200,168,75,0.35);
+  box-shadow:0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  cursor:pointer;
+  transition:border-color 0.4s;
+}
+.switch-plate.on{
+  border-color:rgba(255,220,50,0.7);
+  box-shadow:0 0 20px 6px rgba(255,220,50,0.2), 0 4px 20px rgba(0,0,0,0.5);
+}
+/* Indicator LED top */
+.switch-led{
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:7px;height:7px;border-radius:50%;
+  background:#333;box-shadow:none;
+  transition:background 0.4s, box-shadow 0.4s;
+}
+.switch-plate.on .switch-led{
+  background:#ffe066;
+  box-shadow:0 0 6px 3px rgba(255,220,50,0.8);
+}
+/* Toggle rocker */
+.switch-toggle{
+  width:36px;height:54px;
+  border-radius:4px;
+  background:linear-gradient(170deg,#2a4d36,#1a3424);
+  border:1.5px solid rgba(200,168,75,0.2);
+  box-shadow:0 3px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  position:relative;
+  top:6px; /* OFF = pushed down */
+  transition:top 0.2s cubic-bezier(0.34,1.2,0.64,1),
+             background 0.3s,
+             box-shadow 0.3s,
+             border-color 0.3s;
+}
+.switch-plate.on .switch-toggle{
+  top:-6px; /* ON = pushed up */
+  background:linear-gradient(170deg,#ffe590,#c8a84b);
+  border-color:rgba(255,220,50,0.6);
+  box-shadow:0 6px 16px rgba(255,220,50,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+/* ON / OFF text on rocker */
+.switch-toggle::before{
+  content:'OFF';
+  position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  font-family:'Cinzel',serif;font-size:0.4rem;letter-spacing:0.1em;
+  color:rgba(200,168,75,0.5);
+}
+.switch-plate.on .switch-toggle::before{
+  content:'ON';
+  color:rgba(20,30,10,0.7);
+  bottom:auto;top:6px;
+}
+
+/* ── GLOBAL WEATHER SYSTEM ── */
+#rainCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.45;
+}
+#lightningCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+#lightningFlash {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: rgba(200, 220, 255, 0);
+  transition: background 0.05s ease;
+}
+/* weather toggle pill */
+#weatherPill {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  background: rgba(10,25,15,0.9);
+  border: 1px solid rgba(200,168,75,0.3);
+  border-radius: 50px;
+  padding: 8px 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--green-p);
+  cursor: pointer;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  user-select: none;
+}
+#weatherPill.active { border-color: rgba(100,180,255,0.6); color: #a8d8ff; }
+#s3 > *:not(.rain-canvas) { position: relative; z-index: 1; }
+
+/* Gallery section BG transition */
+#s4{
+  transition:background 0.8s ease;
+}
+#s4.lit{
+  background:radial-gradient(ellipse at center,#3d2600 0%,#1f1200 60%,#0e0800 100%);
+}
+
+/* ── 3D DOUBLE DOOR REVEAL ── */
+#doorReveal {
+  position: fixed; inset: 0;
+  z-index: 8500;
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+  display: block;
+  pointer-events: none;
+}
+.door-panel {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 50%;
+  transform-style: preserve-3d;
+  transition: transform 1.6s cubic-bezier(0.77,0,0.175,1);
+  will-change: transform;
+}
+.door-left  { left: 0;  transform-origin: left center;  transform: rotateY(0deg); }
+.door-right { right: 0; transform-origin: right center; transform: rotateY(0deg); }
+.door-left.open  { transform: rotateY(-105deg); }
+.door-right.open { transform: rotateY(105deg); }
+
+/* Door face */
+.door-face {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #1a3d25 0%, #0f2418 40%, #122d1c 60%, #0a1e10 100%);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+/* Wood grain lines */
+.door-face::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 28px,
+    rgba(255,255,255,0.015) 28px,
+    rgba(255,255,255,0.015) 30px
+  );
+}
+/* Door border inset */
+.door-face::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(200,168,75,0.25);
+  border-radius: 2px;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
+}
+/* Gold top bar */
+.door-gold-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+/* Door inner panel decoration */
+.door-panel-deco {
+  position: absolute;
+  left: 16px; right: 16px;
+  border: 1px solid rgba(200,168,75,0.18);
+  border-radius: 2px;
+}
+/* Handle */
+.door-handle {
+  position: absolute;
+  top: 50%;
+  width: 10px; height: 52px;
+  background: linear-gradient(180deg, #c8a84b, #8b6914, #c8a84b);
+  border-radius: 5px;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.door-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 14px; height: 14px;
+  background: radial-gradient(circle, #e8d07a, #8b6914);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(200,168,75,0.6);
+}
+.door-left .door-handle  { right: 14px; }
+.door-right .door-handle { left: 14px; }
+
+/* Door edge (side face for 3D depth) */
+.door-edge {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 24px;
+  background: linear-gradient(to right, #061008, #0f2018);
+  transform-origin: left center;
+  transform: rotateY(90deg) translateX(-50%);
+  backface-visibility: hidden;
+}
+.door-left .door-edge  { right: -24px; }
+.door-right .door-edge { left: -24px; transform-origin: right center; transform: rotateY(-90deg) translateX(50%); }
+
+/* Shadow that appears as doors open */
+.door-left .door-face  { box-shadow:  4px 0 40px rgba(0,0,0,0.8); }
+.door-right .door-face { box-shadow: -4px 0 40px rgba(0,0,0,0.8); }
+
+/* Center V&S text on doors */
+.door-center-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.door-center-text .dct-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  background: linear-gradient(135deg, #fdf8f0, #e8d07a, #c8a84b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  line-height: 1.2;
+}
+.door-center-text .dct-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.4em;
+  color: rgba(200,168,75,0.5);
+  display: block;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* Background pattern */
+.bg-pattern{
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%,rgba(39,174,96,0.04) 0%,transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(192,57,43,0.04) 0%,transparent 40%);
+  pointer-events:none;z-index:0;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+
+<!-- ═══ INTRO LOADER ═══ -->
+<div id="introLoader">
+  <div class="intro-monogram">V <span class="i-amp">&amp;</span> S</div>
+  <div class="intro-sub">Vaishnavi &amp; Sreenivas</div>
+  <div class="intro-progress-wrap">
+    <div class="intro-progress-track">
+      <div class="intro-progress-fill" id="introFill"></div>
+    </div>
+    <div class="intro-progress-pct" id="introPct">0%</div>
+  </div>
+</div>
+
+<!-- ═══ 3D DOUBLE DOOR REVEAL ═══ -->
+<div id="doorReveal">
+
+  <!-- LEFT DOOR -->
+  <div class="door-panel door-left" id="doorLeft">
+    <div class="door-face">
+      <div class="door-gold-bar"></div>
+      <div class="door-panel-deco" style="top:20px;bottom:52%"></div>
+      <div class="door-panel-deco" style="top:52%;bottom:20px"></div>
+      <!-- V&S split — left shows V -->
+      <div class="door-center-text">
+        <span class="dct-name">Vaishnavi</span>
+        <span class="dct-date">Save the Date</span>
+      </div>
+      <div class="door-handle"></div>
+    </div>
+    <div class="door-edge"></div>
+  </div>
+
+  <!-- RIGHT DOOR -->
+  <div class="door-panel door-right" id="doorRight">
+    <div class="door-face">
+      <div class="door-gold-bar"></div>
+      <div class="door-panel-deco" style="top:20px;bottom:52%"></div>
+      <div class="door-panel-deco" style="top:52%;bottom:20px"></div>
+      <div class="door-center-text">
+        <span class="dct-name">Sreenivas</span>
+        <span class="dct-date">June 21 · 2026</span>
+      </div>
+      <div class="door-handle"></div>
+    </div>
+    <div class="door-edge"></div>
+  </div>
+
+</div>
+
+<!-- FLASH OVERLAY -->
+<div class="flash-overlay" id="flashOverlay"></div>
+
+<!-- ═══ GLOBAL WEATHER SYSTEM ═══ -->
+<canvas id="rainCanvas"></canvas>
+<div id="weatherPill">🌧️ <span id="weatherLabel">Rain ON</span></div>
+
+<!-- AUDIO ENGINE -->
+<!-- 🎵 Replace the src below with your own MP3/song URL or base64 audio -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="audio/pacha.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC PILL -->
+<div class="music-pill" id="musicPill" title="Play / Pause">
+  <div class="music-dot" id="musicDot"></div>
+  <div class="music-bars" id="musicBars">
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+  </div>
+  <span id="musicLabel">♪ Play Music</span>
+</div>
+
+<!-- ═══ S1: MONOGRAM HERO ═══ -->
+<div class="page" id="s1">
+  <div class="monogram-wrap">
+    <div class="monogram-bg"></div>
+    <div class="mono-initials" id="monoInitials">V <span class="mono-amp">&amp;</span> S</div>
+    <div class="mono-line" id="monoLine"></div>
+    <div class="mono-sub" id="monoSub">Save The Date · June 21, 2026</div>
+  </div>
+  <div class="scroll-down">
+    <div class="scroll-down-line"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<!-- ═══ S2: MAIN INVITE ═══ -->
+<div class="page" id="s2">
+  <div class="side-bar left"></div>
+  <div class="side-bar right"></div>
+
+  <div class="invite-pre" id="ip">YOU ARE INVITED TO THE<br>WEDDING OF</div>
+
+  <div class="invite-names" id="in">
+    Vaishnavi
+    <span class="amp">&amp;</span>
+    Sreenivas
+  </div>
+
+  <div class="invite-date" id="id">JUNE 21, 2026</div>
+  <div class="date-underline" id="du"></div>
+  <div class="invite-loc" id="il">KOCHI, KERALA, INDIA</div>
+
+  <!-- SCRATCH CARD -->
+  <div class="scratch-wrap" id="pp">
+    <div class="scratch-hint">✦ Scratch to Reveal ✦</div>
+    <div class="scratch-card-container" id="scratchContainer">
+
+      <!-- Layer 1: revealed content (couple photo / placeholder) -->
+      <div class="scratch-reveal" id="scratchReveal">
+        <img class="reveal-photo" src="images/couple.jpeg" alt="Vaishnavi & Sreenivas">
+      </div>
+
+      <!-- Layer 2: scratch canvas on top -->
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+    <div class="scratch-done-msg" id="scratchDoneMsg">💚 There we are! See you on June 21 ❤️</div>
+  </div>
+</div>
+
+<!-- ═══ S3: FAMILY / STORY ═══ -->
+<div class="page" id="s3">
+  <div class="eyebrow" id="e3">The Royal Union</div>
+  <div class="royal-title" id="rt">Two Souls,<br>One Journey</div>
+
+  <div class="heart-divider" id="hd">
+    <div class="hdl"></div>
+    <div class="heart-icon">♥</div>
+    <div class="hdr"></div>
+  </div>
+
+  <div class="family-block" id="fb1" style="transition-delay:0.1s">
+    <div class="family-label">The Groom</div>
+    <div class="family-name">Sreenivas</div>
+    <div class="family-of">Son Of</div>
+    <div class="family-parents">Mr. [Father's Name]<br>&amp; Mrs. [Mother's Name]</div>
+  </div>
+
+  <div class="and-divider" id="ad">&amp;</div>
+
+  <div class="family-block" id="fb2" style="transition-delay:0.2s">
+    <div class="family-label">The Bride</div>
+    <div class="family-name">Vaishnavi</div>
+    <div class="family-of">Daughter Of</div>
+    <div class="family-parents">Mr. [Father's Name]<br>&amp; Mrs. [Mother's Name]</div>
+  </div>
+</div>
+
+<!-- ═══ S4: GALLERY ═══ -->
+<div class="page" id="s4">
+
+  <!-- Fairy lights -->
+  <div class="lights-bar" id="lightsBar">
+    <div class="lights-wire"></div>
+  </div>
+
+  <div class="gallery-header">
+    <div class="gallery-eyebrow" id="ge">Memories in Light</div>
+    <div class="gallery-title" id="gt">Our Gallery</div>
+  </div>
+
+  <div class="switch-wrap">
+    <div class="switch-label">Lights</div>
+    <div class="switch-plate" id="lightSwitch">
+      <div class="switch-led"></div>
+      <div class="switch-toggle"></div>
+    </div>
+    <div class="switch-label" style="animation:hintPulse 2s ease-in-out infinite;margin-top:4px;">↑ Tap Here</div>
+  </div>
+
+  <div class="polaroid-track" id="polaroidTrack">
+    <div class="polaroid" id="pol1" style="--rot:-2deg">
+      <div class="polaroid-img">🌸</div>
+      <div class="polaroid-caption">Our Beginning</div>
+    </div>
+    <div class="polaroid" id="pol2" style="--rot:1.5deg">
+      <div class="polaroid-img">💚</div>
+      <div class="polaroid-caption">Together Always</div>
+    </div>
+    <div class="polaroid" id="pol3" style="--rot:-1deg">
+      <div class="polaroid-img">❤️</div>
+      <div class="polaroid-caption">Engagement Day</div>
+    </div>
+    <div class="polaroid" id="pol4" style="--rot:2deg">
+      <div class="polaroid-img">✨</div>
+      <div class="polaroid-caption">Our Story</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ S5: EVENTS ═══ -->
+<div class="page" id="s5">
+  <div class="eyebrow" id="e5">Our Celebration</div>
+
+  <div class="event-card" id="ec1">
+    <div class="event-heart">💚</div>
+    <div class="event-name">Ceremony</div>
+    <div class="event-datetime">Saturday · June 21, 2026 · 10:30 AM</div>
+    <div class="event-desc">A sacred and vibrant ceremony filled with Vedic chants, jasmine garlands and the blessings of our beloved elders. Witness the divine union.</div>
+    <div class="event-venue">
+      <span class="event-pin">📍</span>
+      <span>Grand Pavilion Palace, Kochi</span>
+    </div>
+  </div>
+
+  <div class="event-card" id="ec2" style="transition-delay:0.2s">
+    <div class="event-heart">❤️</div>
+    <div class="event-name">Reception</div>
+    <div class="event-datetime">Saturday · June 21, 2026 · 7:00 PM</div>
+    <div class="event-desc">A vibrant and joyous evening filled with love, laughter, great food and dancing. Celebrate with us as we begin our forever together.</div>
+    <div class="event-venue">
+      <span class="event-pin">📍</span>
+      <span>Grand Pavilion Palace, Kochi</span>
+    </div>
+  </div>
+
+  <div class="save-date-banner" id="sdb">
+    <div class="sdb-eye">OUR CELEBRATION</div>
+    <div class="sdb-title">Save the Date</div>
+    <a href="#" class="calendar-btn">📅 &nbsp; Add to Calendar</a>
+  </div>
+</div>
+
+<!-- ═══ S6: VENUE ═══ -->
+<div class="page" id="s6">
+  <div class="venue-eye" id="ve">The Venue</div>
+  <div class="venue-name" id="vn">Grand Pavilion<br>Palace</div>
+  <div class="venue-addr" id="va">
+    Near Marine Drive, Ernakulam<br>Kochi, Kerala — 682 016<br>India
+  </div>
+  <a href="https://maps.google.com" target="_blank" class="map-btn" id="mb">
+    🗺️ &nbsp; Map &amp; Directions
+  </a>
+  <div class="map-placeholder" id="mp">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.013!2d76.2673!3d9.9312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0874a4!2sMarine+Drive!5e0!3m2!1sen!2sin!4v1"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<!-- ═══ S7: RSVP ═══ -->
+<div class="page" id="s7">
+  <div class="eyebrow" id="e7">Join Us</div>
+  <div class="rsvp-card" id="rc">
+    <div class="rsvp-label">R S V P</div>
+    <div class="rsvp-title">Please do<br>join us...</div>
+    <div class="rsvp-divider"></div>
+    <div class="rsvp-contact-label">Please Contact</div>
+    <div class="rsvp-contact-name">[Your Name Here]</div>
+    <div class="rsvp-phone">+91 XXXXX XXXXX</div>
+    <div class="rsvp-contact-name" style="margin-top:8px">[Second Contact]</div>
+    <div class="rsvp-phone">+91 XXXXX XXXXX</div>
+    <div class="rsvp-quote">"Your presence means the world to us.<br>We cannot wait to celebrate<br>with you by our side."</div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;font-family:'Great Vibes',cursive;font-size:2rem;color:rgba(39,174,96,0.35);">
+    Vaishnavi &amp; Sreenivas
+  </div>
+  <div style="text-align:center;margin-top:8px;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.4em;color:rgba(200,168,75,0.3);">
+    21 · 06 · 2026
+  </div>
+</div>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <div class="cd-unit"><span class="cd-n" id="cdd">000</span><span class="cd-l">Days</span></div>
+  <div class="cd-div">:</div>
+  <div class="cd-unit"><span class="cd-n" id="cdh">00</span><span class="cd-l">Hours</span></div>
+  <div class="cd-div">:</div>
+  <div class="cd-unit"><span class="cd-n" id="cdm">00</span><span class="cd-l">Mins</span></div>
+  <div class="cd-div">:</div>
+  <div class="cd-unit"><span class="cd-n" id="cds">00</span><span class="cd-l">Secs</span></div>
+</div>
+
+<script>
+// ── INTRO LOADER ──
+(function runLoader() {
+  const pctEl  = document.getElementById('introPct');
+  const loader = document.getElementById('introLoader');
+
+  let pct = 0;
+  const tick = setInterval(() => {
+    pct = Math.min(pct + 1, 100);
+    if (pctEl) pctEl.textContent = pct + '%';
+    if (pct >= 100) clearInterval(tick);
+  }, 30);
+
+  setTimeout(() => {
+    loader.classList.add('hide');
+    setTimeout(startHeartReveal, 600);
+  }, 3400);
+})();
+
+// ── 3D DOOR REVEAL ──
+function startHeartReveal() {
+  const door   = document.getElementById('doorReveal');
+  const dLeft  = document.getElementById('doorLeft');
+  const dRight = document.getElementById('doorRight');
+  if (!door) return;
+
+  // Doors are already closed — just swing open
+  setTimeout(() => {
+    dLeft.classList.add('open');
+    dRight.classList.add('open');
+
+    // After fully open, fade out
+    setTimeout(() => {
+      door.style.transition = 'opacity 0.5s ease';
+      door.style.opacity = '0';
+      setTimeout(() => { door.style.display = 'none'; }, 550);
+    }, 1700);
+  }, 200);
+}
+
+// ── SCROLL-TRIGGERED REVEALS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+}, { threshold: 0.12 });
+
+// NOTE: pol1-pol4 deliberately excluded — only show after TAP ME
+[
+  'monoInitials','monoLine','monoSub',
+  'ip','in','id','du','il','pp',
+  'e3','rt','hd','fb1','ad','fb2',
+  'ge','gt',
+  'e5','ec1','ec2','sdb',
+  've','vn','va','mb','mp',
+  'e7','rc'
+].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) observer.observe(el);
+});
+
+// ── FAIRY LIGHTS — start OFF (dim), tap to switch ON ──
+const BULB_COLORS = [
+  '#e74c3c','#27ae60','#f39c12','#3498db',
+  '#9b59b6','#e67e22','#1abc9c','#e74c3c',
+  '#f1c40f','#27ae60','#e74c3c','#3498db',
+  '#27ae60','#f39c12'
+];
+const allGlobes = [];
+
+(function buildLights() {
+  const bar = document.getElementById('lightsBar');
+  const count = 14;
+  for (let i = 0; i < count; i++) {
+    const bulb = document.createElement('div');
+    bulb.className = 'light-bulb';
+    const pct = (i / (count - 1)) * 90 + 5;
+    bulb.style.left = pct + '%';
+    const col = BULB_COLORS[i];
+    // Build bulb — globe starts as dim grey, color stored in data attr
+    bulb.innerHTML = `
+      <div class="light-string"></div>
+      <div class="light-globe" data-col="${col}"></div>
+    `;
+    bar.appendChild(bulb);
+    allGlobes.push(bulb.querySelector('.light-globe'));
+  }
+})();
+
+let lightsOn = false;
+let toggleBusy = false; // prevent rapid double-tap
+
+function turnOn() {
+  const flash = document.getElementById('flashOverlay');
+  flash.classList.add('flash');
+  setTimeout(() => {
+    flash.classList.remove('flash');
+    setTimeout(() => { flash.classList.add('flash'); setTimeout(() => flash.classList.remove('flash'), 80); }, 140);
+  }, 80);
+
+  // Switch visual ON
+  document.getElementById('lightSwitch').classList.add('on');
+  // BG warms up
+  document.getElementById('s4').classList.add('lit');
+
+  document.querySelector('.lights-wire').classList.add('on');
+
+  allGlobes.forEach((globe, i) => {
+    setTimeout(() => {
+      const col = globe.dataset.col;
+      globe.style.background = col;
+      globe.style.boxShadow  = `0 0 8px 4px ${col}, 0 0 20px 10px ${col}55`;
+      globe.style.opacity    = '1';
+      globe.style.animation  = 'bulbPop 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards';
+      globe.closest('.light-bulb').querySelector('.light-string').style.background = 'rgba(200,168,75,0.8)';
+    }, i * 90);
+  });
+
+  const delay = allGlobes.length * 90 + 150;
+  setTimeout(() => { toggleBusy = false; }, delay);
+
+  setTimeout(() => {
+    ['pol1','pol2','pol3','pol4'].forEach((id, i) => {
+      setTimeout(() => { const el = document.getElementById(id); if(el) el.classList.add('show'); }, i * 150);
+    });
+  }, delay + 200);
+}
+
+function turnOff() {
+  // Switch visual OFF + BG back to dark
+  document.getElementById('lightSwitch').classList.remove('on');
+  document.getElementById('s4').classList.remove('lit');
+  document.querySelector('.lights-wire').classList.remove('on');
+
+  // Turn off bulbs right → left (reverse)
+  [...allGlobes].reverse().forEach((globe, i) => {
+    setTimeout(() => {
+      globe.style.animation  = 'none';
+      globe.style.background = '#3a3a3a';
+      globe.style.boxShadow  = '0 0 3px 1px rgba(0,0,0,0.6)';
+      globe.style.opacity    = '0.45';
+      globe.closest('.light-bulb').querySelector('.light-string').style.background = 'rgba(200,168,75,0.3)';
+    }, i * 60);
+  });
+
+  const delay = allGlobes.length * 60 + 100;
+  setTimeout(() => {
+    ['pol1','pol2','pol3','pol4'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.classList.remove('show');
+    });
+    toggleBusy = false;
+  }, delay);
+}
+
+function toggleLights() {
+  if (toggleBusy) return;
+  toggleBusy = true;
+  lightsOn = !lightsOn;
+  lightsOn ? turnOn() : turnOff();
+}
+
+const tapBtn = document.getElementById('lightSwitch');
+tapBtn.addEventListener('click', toggleLights);
+tapBtn.addEventListener('touchend', (e) => { e.preventDefault(); toggleLights(); });
+
+// ── SCRATCH CARD ──
+(function initScratch() {
+  const container = document.getElementById('scratchContainer');
+  const canvas    = document.getElementById('scratchCanvas');
+  const ctx       = canvas.getContext('2d');
+  const doneMsg   = document.getElementById('scratchDoneMsg');
+  let isDrawing   = false;
+  let revealed    = false;
+
+  function resizeCanvas() {
+    const rect = container.getBoundingClientRect();
+    const W = rect.width  || 340;
+    const H = rect.height || 255;
+    canvas.width  = W;
+    canvas.height = H;
+    drawOverlay();
+  }
+
+  function drawOverlay() {
+    const W = canvas.width, H = canvas.height;
+
+    // Dark green scratch surface with gold pattern
+    const grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0,   '#0f2a18');
+    grad.addColorStop(0.5, '#1a4030');
+    grad.addColorStop(1,   '#0a1f10');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Gold decorative border pattern
+    ctx.strokeStyle = 'rgba(200,168,75,0.4)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(12, 12, W - 24, H - 24);
+    ctx.strokeRect(18, 18, W - 36, H - 36);
+
+    // Coin texture dots
+    ctx.fillStyle = 'rgba(200,168,75,0.08)';
+    for (let x = 20; x < W; x += 22) {
+      for (let y = 20; y < H; y += 22) {
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Center icon + hint text
+    ctx.fillStyle = 'rgba(200,168,75,0.75)';
+    ctx.font = `${Math.floor(H * 0.18)}px serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText('💛', W / 2, H / 2 - 10);
+
+    ctx.fillStyle = 'rgba(200,168,75,0.6)';
+    ctx.font = `600 ${Math.floor(H * 0.06)}px "Cinzel", serif`;
+    ctx.letterSpacing = '0.3em';
+    ctx.fillText('SCRATCH HERE', W / 2, H / 2 + H * 0.12);
+
+    ctx.font = `${Math.floor(H * 0.045)}px "Cormorant Garamond", serif`;
+    ctx.fillStyle = 'rgba(200,168,75,0.4)';
+    ctx.fillText('to reveal us ✦', W / 2, H / 2 + H * 0.22);
+  }
+
+  function scratch(x, y) {
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 28, 0, Math.PI * 2);
+    ctx.fill();
+    checkReveal();
+  }
+
+  function checkReveal() {
+    if (revealed) return;
+    const pixels    = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let transparent = 0;
+    for (let i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] < 128) transparent++;
+    }
+    const pct = transparent / (pixels.length / 4);
+    if (pct > 0.55) {
+      revealed = true;
+      // Fade out canvas completely
+      canvas.style.transition = 'opacity 0.6s ease';
+      canvas.style.opacity    = '0';
+      setTimeout(() => { canvas.style.display = 'none'; }, 650);
+      doneMsg.classList.add('show');
+    }
+  }
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const src  = e.touches ? e.touches[0] : e;
+    return {
+      x: (src.clientX - rect.left) * (canvas.width  / rect.width),
+      y: (src.clientY - rect.top)  * (canvas.height / rect.height)
+    };
+  }
+
+  canvas.addEventListener('mousedown',  (e) => { isDrawing = true; scratch(...Object.values(getPos(e))); });
+  canvas.addEventListener('mousemove',  (e) => { if (isDrawing) scratch(...Object.values(getPos(e))); });
+  canvas.addEventListener('mouseup',    ()  => { isDrawing = false; });
+  canvas.addEventListener('touchstart', (e) => { e.preventDefault(); isDrawing = true; scratch(...Object.values(getPos(e))); }, { passive: false });
+  canvas.addEventListener('touchmove',  (e) => { e.preventDefault(); if (isDrawing) scratch(...Object.values(getPos(e))); }, { passive: false });
+  canvas.addEventListener('touchend',   ()  => { isDrawing = false; });
+
+  // Init after layout
+  setTimeout(resizeCanvas, 300);
+  window.addEventListener('resize', resizeCanvas);
+})();
+function tick() {
+  const diff = new Date('2026-06-21T10:30:00') - new Date();
+  if(diff <= 0) return;
+  document.getElementById('cdd').textContent = String(Math.floor(diff/86400000)).padStart(3,'0');
+  document.getElementById('cdh').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  document.getElementById('cdm').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cds').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+
+// ══════════════════════════════
+// RAIN EFFECT ONLY
+// ══════════════════════════════
+(function WeatherSystem() {
+
+  let weatherOn = true;
+
+  const rc  = document.getElementById('rainCanvas');
+  const rct = rc.getContext('2d');
+
+  function resizeRain() {
+    rc.width  = window.innerWidth;
+    rc.height = window.innerHeight;
+  }
+  resizeRain();
+  window.addEventListener('resize', resizeRain);
+
+  const FOV = 320, DROPS = 220;
+
+  function makeDrop() {
+    return {
+      x: (Math.random() - 0.5) * 1400,
+      y: Math.random() * -window.innerHeight,
+      z: Math.random() * 650 + 40,
+      spd: Math.random() * 12 + 7,
+      len: Math.random() * 24 + 10,
+    };
+  }
+  const drops = Array.from({ length: DROPS }, makeDrop);
+
+  function proj(x, y, z) {
+    const s = FOV / (FOV + z);
+    return { sx: x*s + rc.width/2, sy: y*s + rc.height/2, s };
+  }
+
+  function drawRain() {
+    rct.clearRect(0, 0, rc.width, rc.height);
+    drops.sort((a, b) => b.z - a.z);
+    drops.forEach(d => {
+      const top = proj(d.x, d.y, d.z);
+      const bot = proj(d.x, d.y + d.len, d.z);
+      const alpha = Math.min(0.9, (1 - d.z/700)*0.85 + 0.1);
+      const w     = Math.max(0.3, top.s * 1.4);
+      const blue  = Math.floor(160 + (1-d.z/700)*80);
+
+      const gr = rct.createLinearGradient(top.sx, top.sy, bot.sx, bot.sy);
+      gr.addColorStop(0,   `rgba(140,180,${blue},0)`);
+      gr.addColorStop(0.4, `rgba(140,190,${blue},${alpha})`);
+      gr.addColorStop(1,   `rgba(200,168,75,${alpha*0.2})`);
+      rct.beginPath();
+      rct.moveTo(top.sx, top.sy);
+      rct.lineTo(bot.sx, bot.sy);
+      rct.strokeStyle = gr;
+      rct.lineWidth   = w;
+      rct.lineCap     = 'round';
+      rct.stroke();
+
+      d.y += d.spd * (FOV/(FOV+d.z)) * 1.7;
+      if (bot.sy > rc.height + 20) Object.assign(d, makeDrop(), { y: -d.len - Math.random()*200 });
+    });
+  }
+
+  function loop() {
+    if (weatherOn) drawRain();
+    else rct.clearRect(0, 0, rc.width, rc.height);
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  // Toggle pill
+  const pill   = document.getElementById('weatherPill');
+  const wLabel = document.getElementById('weatherLabel');
+
+  pill.addEventListener('click', e => {
+    e.stopPropagation();
+    weatherOn = !weatherOn;
+    pill.classList.toggle('active', weatherOn);
+    wLabel.textContent = weatherOn ? 'Rain ON' : 'Rain OFF';
+    pill.childNodes[0].textContent = weatherOn ? '🌧️ ' : '☀️ ';
+  });
+  pill.addEventListener('touchend', e => {
+    e.preventDefault(); e.stopPropagation();
+    weatherOn = !weatherOn;
+    pill.classList.toggle('active', weatherOn);
+    wLabel.textContent = weatherOn ? 'Rain ON' : 'Rain OFF';
+    pill.childNodes[0].textContent = weatherOn ? '🌧️ ' : '☀️ ';
+  });
+
+})();
+
+// ── PETALS ──
+function spawnPetal() {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = Math.random() > 0.5 ? '🌹' : '🌿';
+  p.style.cssText = `left:${Math.random()*95}vw;animation-duration:${Math.random()*8+10}s;animation-delay:${Math.random()*4}s;font-size:${Math.random()*8+8}px`;
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 18000);
+}
+setInterval(spawnPetal, 1200);
+
+// ── MUSIC / AUDIO ──
+(function initAudio() {
+  const audio  = document.getElementById('bgAudio');
+  const pill   = document.getElementById('musicPill');
+  const label  = document.getElementById('musicLabel');
+  const dot    = document.getElementById('musicDot');
+  const bars   = document.getElementById('musicBars');
+  let playing  = false;
+
+  audio.volume = 0.5;
+
+  function setPlaying(state) {
+    playing = state;
+    if (playing) {
+      pill.classList.add('playing');
+      pill.classList.remove('paused');
+      label.textContent = '♪ Now Playing';
+    } else {
+      pill.classList.remove('playing');
+      pill.classList.add('paused');
+      label.textContent = '♪ Paused';
+    }
+  }
+
+  function toggleAudio() {
+    if (playing) {
+      // Fade out
+      const fade = setInterval(() => {
+        if (audio.volume > 0.05) audio.volume -= 0.05;
+        else { audio.pause(); audio.volume = 0.5; clearInterval(fade); }
+      }, 80);
+      setPlaying(false);
+    } else {
+      audio.volume = 0;
+      audio.play().then(() => {
+        setPlaying(true);
+        // Fade in
+        const fade = setInterval(() => {
+          if (audio.volume < 0.48) audio.volume += 0.04;
+          else { audio.volume = 0.5; clearInterval(fade); }
+        }, 80);
+      }).catch(() => {
+        label.textContent = '⚠ Tap Again';
+      });
+    }
+  }
+
+  pill.addEventListener('click', toggleAudio);
+  pill.addEventListener('touchend', (e) => { e.preventDefault(); toggleAudio(); });
+
+  // Auto-play on first user gesture anywhere on page
+  let autoPlayed = false;
+  function tryAutoPlay() {
+    if (autoPlayed || playing) return;
+    autoPlayed = true;
+    audio.volume = 0;
+    audio.play().then(() => {
+      setPlaying(true);
+      const fade = setInterval(() => {
+        if (audio.volume < 0.48) audio.volume += 0.03;
+        else { audio.volume = 0.5; clearInterval(fade); }
+      }, 100);
+    }).catch(() => {}); // silently fail — user can tap pill
+  }
+  document.addEventListener('touchstart', tryAutoPlay, { once: true });
+  document.addEventListener('click',      tryAutoPlay, { once: true });
+  document.addEventListener('scroll',     tryAutoPlay, { once: true });
+})();
+
+// ── PARALLAX BG ──
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  document.querySelector('.bg-pattern').style.transform = `translateY(${y*0.05}px)`;
+});
+</script>
+</body>
+</html>
