@@ -860,12 +860,14 @@
       gap: 16px;
       padding: 16px 24px 24px;
       overflow-x: auto;
+      overflow-y: hidden;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       touch-action: pan-x;
       cursor: grab;
       overscroll-behavior-x: contain;
+      overscroll-behavior-y: auto;
     }
 
     .polaroid-track:active {
@@ -2458,19 +2460,21 @@
 
       track.addEventListener('pointerdown', (e) => {
         if (e.pointerType === 'mouse' && e.button !== 0) return;
+        e.preventDefault();
         isDown = true;
         track.classList.add('active');
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
         track.setPointerCapture(e.pointerId);
-      });
+      }, { passive: false });
 
       track.addEventListener('pointermove', (e) => {
         if (!isDown) return;
+        e.preventDefault();
         const x = e.pageX - track.offsetLeft;
         const walk = x - startX;
         track.scrollLeft = scrollLeft - walk;
-      });
+      }, { passive: false });
 
       const stopDragging = (e) => {
         if (!isDown) return;
