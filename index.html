@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Vaishnavi & Sreenivas — Save the Date · June 21, 2026</title>
+  <link rel="preload" as="image" href="images/DSC00421.JPG">
+  <link rel="preload" as="image" href="images/DSC00587.JPG">
+  <link rel="preload" as="image" href="images/DSC00594.JPG">
+  <link rel="preload" as="image" href="images/DSC00782.JPG">
+  <link rel="preload" as="image" href="images/DSC00927.JPG">
+  <link rel="preload" as="image" href="images/DSC01010.JPG">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
@@ -843,6 +849,13 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      touch-action: pan-x;
+      cursor: grab;
+      overscroll-behavior-x: contain;
+    }
+
+    .polaroid-track:active {
+      cursor: grabbing;
     }
 
     .polaroid-track::-webkit-scrollbar {
@@ -860,6 +873,8 @@
       transform: rotate(var(--rot)) translateY(30px);
       opacity: 0;
       transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform, opacity;
+      contain: paint;
     }
 
     .polaroid.show {
@@ -879,6 +894,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: transform;
+      image-rendering: auto;
+      -webkit-user-drag: none;
+      user-select: none;
     }
 
     /* ─────────────────────────────
@@ -2163,46 +2184,46 @@
 
     <div class="polaroid-track" id="polaroidTrack">
       <div class="polaroid" id="pol1" style="--rot:-2deg">
-        <div class="polaroid-img"><img src="images/DSC00421.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC00421.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol2" style="--rot:1.5deg">
-        <div class="polaroid-img"><img src="images/DSC00587.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC00587.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol3" style="--rot:-1deg">
-        <div class="polaroid-img"><img src="images/DSC00594.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC00594.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol5" style="--rot:-1.5deg">
-        <div class="polaroid-img"><img src="images/DSC00782.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC00782.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol7" style="--rot:-2deg">
-        <div class="polaroid-img"><img src="images/DSC00927.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC00927.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol8" style="--rot:1.5deg">
-        <div class="polaroid-img"><img src="images/DSC01010.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC01010.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol9" style="--rot:-1deg">
-        <div class="polaroid-img"><img src="images/DSC01046.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC01046.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol10" style="--rot:2deg">
-        <div class="polaroid-img"><img src="images/DSC01101.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC01101.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol11" style="--rot:-1.5deg">
-        <div class="polaroid-img"><img src="images/DSC01117.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC01117.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol12" style="--rot:1deg">
-        <div class="polaroid-img"><img src="images/DSC01124.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC01124.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol13" style="--rot:-2deg">
-        <div class="polaroid-img"><img src="images/DSC09552.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC09552.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol14" style="--rot:1.5deg">
-        <div class="polaroid-img"><img src="images/DSC09635.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC09635.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol16" style="--rot:2deg">
-        <div class="polaroid-img"><img src="images/DSC09706.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC09706.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol17" style="--rot:-1.5deg">
-        <div class="polaroid-img"><img src="images/DSC09851.JPG" alt="Memory"></div>
+        <div class="polaroid-img"><img src="images/DSC09851.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
     </div>
 
@@ -2385,6 +2406,68 @@
         const tilt = tilts[Math.floor(Math.random() * tilts.length)];
         card.style.setProperty('--rot', tilt + 'deg');
       });
+    })();
+
+    // ── PRELOAD GALLERY IMAGES ──
+    (function preloadGalleryImages() {
+      const gallerySection = document.getElementById('s4');
+      const galleryImages = Array.from(document.querySelectorAll('.polaroid-img img'));
+      if (!gallerySection || !galleryImages.length) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        galleryImages.forEach((img, index) => {
+          if (index < 6) img.loading = 'eager';
+          img.decoding = 'async';
+          if (img.complete) return;
+          const preload = new Image();
+          preload.decoding = 'async';
+          preload.src = img.src;
+          preload.onload = () => {
+            if (img.decode) img.decode().catch(() => null);
+          };
+        });
+        obs.disconnect();
+      }, { rootMargin: '400px 0px', threshold: 0.01 });
+
+      observer.observe(gallerySection);
+    })();
+
+    // ── ENABLE DESKTOP DRAG SWIPE FOR GALLERY ──
+    (function enableGalleryDrag() {
+      const track = document.getElementById('polaroidTrack');
+      if (!track) return;
+
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      track.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        isDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        track.setPointerCapture(e.pointerId);
+      });
+
+      track.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - track.offsetLeft;
+        const walk = x - startX;
+        track.scrollLeft = scrollLeft - walk;
+      });
+
+      const stopDragging = (e) => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove('active');
+        if (e.pointerId) track.releasePointerCapture(e.pointerId);
+      };
+
+      track.addEventListener('pointerup', stopDragging);
+      track.addEventListener('pointerleave', stopDragging);
+      track.addEventListener('pointercancel', stopDragging);
     })();
 
     // ── FAIRY LIGHTS — start OFF (dim), tap to switch ON ──
