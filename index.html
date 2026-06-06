@@ -86,7 +86,7 @@
       background: var(--bg);
       color: var(--ivory);
       font-family: 'Cormorant Garamond', serif;
-      overflow-x: hidden;
+      overflow-x: visible;
       max-width: 480px;
       margin: 0 auto;
       position: relative;
@@ -888,10 +888,9 @@
       scroll-snap-type: x proximity;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      touch-action: pan-x;
+      touch-action: manipulation;
       cursor: grab;
-      overscroll-behavior-x: contain;
-      overscroll-behavior-y: auto;
+      overscroll-behavior: contain;
     }
 
     .polaroid-track:active {
