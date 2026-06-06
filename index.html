@@ -2088,7 +2088,7 @@
 
   <!-- AUDIO ENGINE -->
   <!-- 🎵 Replace the src below with your own MP3/song URL or base64 audio -->
-  <audio id="bgAudio" loop preload="auto" autoplay muted>
+  <audio id="bgAudio" loop preload="auto" autoplay muted playsinline webkit-playsinline>
     <source src="audio/mangalyam.mp3.mp3" type="audio/mpeg">
   </audio>
 
@@ -2934,9 +2934,18 @@
           }, 100);
         }).catch(() => { }); // silently fail — user can tap pill
       }
-      document.addEventListener('touchstart', tryAutoPlay, { once: true });
+      document.addEventListener('touchstart', tryAutoPlay, { once: true, passive: true });
       document.addEventListener('click', tryAutoPlay, { once: true });
-      document.addEventListener('scroll', tryAutoPlay, { once: true });
+      document.addEventListener('scroll', tryAutoPlay, { once: true, passive: true });
+
+      let wasPlayingBeforeHide = false;
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+          wasPlayingBeforeHide = playing && !audio.paused;
+        } else if (document.visibilityState === 'visible' && wasPlayingBeforeHide) {
+          audio.play().catch(() => { });
+        }
+      });
     })();
 
     // ── PARALLAX BG ──
