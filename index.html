@@ -437,7 +437,7 @@
       border: 2px solid rgba(200, 168, 75, 0.35);
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
       cursor: crosshair;
-      touch-action: none;
+      touch-action: pan-y;
     }
 
     /* Revealed photo underneath */
@@ -476,7 +476,7 @@
       width: 100%;
       height: 100%;
       border-radius: 14px;
-      touch-action: none;
+      touch-action: pan-y;
     }
 
     .scratch-done-msg {
@@ -2588,12 +2588,41 @@
         };
       }
 
+      let touchStart = null;
+      let touchScratch = false;
+
       canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(...Object.values(getPos(e))); });
       canvas.addEventListener('mousemove', (e) => { if (isDrawing) scratch(...Object.values(getPos(e))); });
       canvas.addEventListener('mouseup', () => { isDrawing = false; });
-      canvas.addEventListener('touchstart', (e) => { e.preventDefault(); isDrawing = true; scratch(...Object.values(getPos(e))); }, { passive: false });
-      canvas.addEventListener('touchmove', (e) => { e.preventDefault(); if (isDrawing) scratch(...Object.values(getPos(e))); }, { passive: false });
-      canvas.addEventListener('touchend', () => { isDrawing = false; });
+      canvas.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        touchStart = getPos(e);
+        touchScratch = false;
+      }, { passive: true });
+      canvas.addEventListener('touchmove', (e) => {
+        if (e.touches.length !== 1 || !touchStart) return;
+        const pos = getPos(e);
+        const dx = Math.abs(pos.x - touchStart.x);
+        const dy = Math.abs(pos.y - touchStart.y);
+
+        if (!touchScratch) {
+          if (dx < 8 && dy < 8) return;
+          if (dy > dx) {
+            touchStart = null;
+            return;
+          }
+          touchScratch = true;
+          isDrawing = true;
+        }
+
+        e.preventDefault();
+        scratch(...Object.values(pos));
+      }, { passive: false });
+      canvas.addEventListener('touchend', () => {
+        isDrawing = false;
+        touchStart = null;
+        touchScratch = false;
+      });
 
       // Init after layout
       setTimeout(resizeCanvas, 300);
