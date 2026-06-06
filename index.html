@@ -75,6 +75,7 @@
     @media (max-width: 640px) {
       html {
         scroll-snap-type: none;
+        overflow-x: hidden;
       }
       .page {
         scroll-snap-align: unset;
@@ -2405,12 +2406,7 @@
     }
 
     // ── SCROLL-TRIGGERED REVEALS ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('show');
-      });
-    }, { threshold: 0.12 });
-
+    // Disabled scroll reveal animations: show elements immediately instead of on scroll.
     // NOTE: pol1-pol4 deliberately excluded — only show after TAP ME
     [
       'monoInitials', 'monoLine', 'monoSub',
@@ -2422,7 +2418,7 @@
       'e7', 'rc'
     ].forEach(id => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (el) el.classList.add('show');
     });
 
     // ── SHUFFLE GALLERY POLAROIDS on every load ──
