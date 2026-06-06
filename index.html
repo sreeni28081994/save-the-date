@@ -2454,14 +2454,15 @@
       const track = document.getElementById('polaroidTrack');
       if (!track) return;
 
-      let isDown = false;
+      let isMouseDragging = false;
       let startX;
       let scrollLeft;
 
       track.addEventListener('pointerdown', (e) => {
-        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        if (e.pointerType !== 'mouse') return;
+        if (e.button !== 0) return;
         e.preventDefault();
-        isDown = true;
+        isMouseDragging = true;
         track.classList.add('active');
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
@@ -2469,7 +2470,7 @@
       }, { passive: false });
 
       track.addEventListener('pointermove', (e) => {
-        if (!isDown) return;
+        if (!isMouseDragging) return;
         e.preventDefault();
         const x = e.pageX - track.offsetLeft;
         const walk = x - startX;
@@ -2477,8 +2478,8 @@
       }, { passive: false });
 
       const stopDragging = (e) => {
-        if (!isDown) return;
-        isDown = false;
+        if (!isMouseDragging) return;
+        isMouseDragging = false;
         track.classList.remove('active');
         if (e.pointerId) track.releasePointerCapture(e.pointerId);
       };
