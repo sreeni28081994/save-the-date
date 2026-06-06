@@ -62,7 +62,16 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: y proximity;
+    }
+
+    @media (max-width: 640px) {
+      html {
+        scroll-snap-type: none;
+      }
+      .page {
+        scroll-snap-align: unset;
+      }
     }
 
     body {
