@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Vaishnavi & Sreenivas — Save the Date · June 21, 2026</title>
   <meta name="description" content="Save the Date for Vaishnavi & Sreenivas — June 21, 2026.">
-  <meta property="og:title" content="Vaishnavi & Sreenivas — Save the Date">
-  <meta property="og:description" content="Join us in celebrating Vaishnavi & Sreenivas on June 21, 2026.">
+  <meta property="og:title" content="Vaishnavi & Sreenivas — Wedding Invitation">
+  <meta property="og:description" content="Join us in celebrating the wedding of Vaishnavi & Sreenivas on June 21, 2026.">
   <meta property="og:url" content="https://save-the-date-six-theta.vercel.app/">
   <meta property="og:image" content="https://save-the-date-six-theta.vercel.app/images/og-image.jpg">
   <meta property="og:image:secure_url" content="https://save-the-date-six-theta.vercel.app/images/og-image.jpg">
@@ -20,11 +20,19 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://save-the-date-six-theta.vercel.app/images/og-image.jpg">
   <meta name="twitter:image:alt" content="Save the Date for Vaishnavi & Sreenivas">
+  <link rel="preload" as="image" href="images/green-1.jpg">
+  <link rel="preload" as="image" href="images/green-2.jpg">
   <link rel="preload" as="image" href="images/DSC00421.JPG">
-  <link rel="preload" as="image" href="images/DSC00587.JPG">
-  <link rel="preload" as="image" href="images/DSC00594.JPG">
-  <link rel="preload" as="image" href="images/DSC00782.JPG">
   <link rel="preload" as="image" href="images/DSC00927.JPG">
+  <link rel="preload" as="image" href="images/DSC01010.JPG">
+  <link rel="preload" as="image" href="images/DSC01046.JPG">
+  <link rel="preload" as="image" href="images/DSC01101.JPG">
+  <link rel="preload" as="image" href="images/DSC01124.JPG">
+  <link rel="preload" as="image" href="images/DSC09552.JPG">
+  <link rel="preload" as="image" href="images/DSC09635.JPG">
+  <link rel="preload" as="image" href="images/DSC09697.JPG">
+  <link rel="preload" as="image" href="images/DSC09706.JPG">
+  <link rel="preload" as="image" href="images/DSC09851.JPG">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
@@ -871,16 +879,17 @@
     }
 
     /* Polaroid scroll */
+    .swiper,
     .polaroid-track {
       display: flex;
       gap: 16px;
       padding: 16px 24px 24px;
       overflow-x: auto;
       overflow-y: hidden;
-      scroll-snap-type: x mandatory;
+      scroll-snap-type: x proximity;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      touch-action: auto;
+      touch-action: pan-x;
       cursor: grab;
       overscroll-behavior-x: contain;
       overscroll-behavior-y: auto;
@@ -1938,7 +1947,7 @@
       border: 1px solid rgba(253, 248, 240, 0.48);
       border-radius: 999px;
       background:
-        linear-gradient(135deg, rgba(251, 226, 128, 0.98), rgba(192, 57, 43, 0.96) 52%, rgba(139, 0, 0, 0.98));
+        linear-gradient(135deg, rgba(251, 226, 128, 0.98), rgb(139 41 41) 52%, rgba(139, 0, 0, 0.98));
       color: var(--ivory);
       font-family: 'Cinzel', serif;
       text-transform: uppercase;
@@ -2217,42 +2226,44 @@
       <div class="switch-label" style="animation:hintPulse 2s ease-in-out infinite;margin-top:4px;">↑ Tap Here</div>
     </div>
 
-    <div class="polaroid-track" id="polaroidTrack">
+    <div class="polaroid-track swiper" id="polaroidTrack">
       <div class="polaroid" id="pol1" style="--rot:-2deg">
-        <div class="polaroid-img"><img src="images/DSC00421.JPG" alt="Memory" loading="eager" decoding="async"></div>
+        <div class="polaroid-img"><img src="images/green-1.jpg" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol2" style="--rot:1.5deg">
-        <div class="polaroid-img"><img src="images/DSC00587.JPG" alt="Memory" loading="eager" decoding="async"></div>
+        <div class="polaroid-img"><img src="images/green-2.jpg" alt="Memory" loading="eager" decoding="async"></div>
       </div>
       <div class="polaroid" id="pol3" style="--rot:-1deg">
-        <div class="polaroid-img"><img src="images/DSC00594.JPG" alt="Memory" loading="eager" decoding="async"></div>
+        <div class="polaroid-img"><img src="images/DSC00421.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol5" style="--rot:-1.5deg">
-        <div class="polaroid-img"><img src="images/DSC00782.JPG" alt="Memory" loading="eager" decoding="async"></div>
-      </div>
-      <div class="polaroid" id="pol7" style="--rot:-2deg">
+      <div class="polaroid" id="pol4" style="--rot:-1.5deg">
         <div class="polaroid-img"><img src="images/DSC00927.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol8" style="--rot:1.5deg">
+      <div class="polaroid" id="pol5" style="--rot:2deg">
         <div class="polaroid-img"><img src="images/DSC01010.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol9" style="--rot:-1deg">
+      <div class="polaroid" id="pol6" style="--rot:-2deg">
         <div class="polaroid-img"><img src="images/DSC01046.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol10" style="--rot:2deg">
+      <div class="polaroid" id="pol7" style="--rot:1.5deg">
         <div class="polaroid-img"><img src="images/DSC01101.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-    
-      <div class="polaroid" id="pol13" style="--rot:-2deg">
+      <div class="polaroid" id="pol8" style="--rot:-1deg">
+        <div class="polaroid-img"><img src="images/DSC01124.JPG" alt="Memory" loading="eager" decoding="async"></div>
+      </div>
+      <div class="polaroid" id="pol9" style="--rot:2deg">
         <div class="polaroid-img"><img src="images/DSC09552.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol14" style="--rot:1.5deg">
+      <div class="polaroid" id="pol10" style="--rot:-2deg">
         <div class="polaroid-img"><img src="images/DSC09635.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol16" style="--rot:2deg">
+      <div class="polaroid" id="pol11" style="--rot:1.5deg">
+        <div class="polaroid-img"><img src="images/DSC09697.JPG" alt="Memory" loading="eager" decoding="async"></div>
+      </div>
+      <div class="polaroid" id="pol12" style="--rot:-1deg">
         <div class="polaroid-img"><img src="images/DSC09706.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
-      <div class="polaroid" id="pol17" style="--rot:-1.5deg">
+      <div class="polaroid" id="pol13" style="--rot:2deg">
         <div class="polaroid-img"><img src="images/DSC09851.JPG" alt="Memory" loading="eager" decoding="async"></div>
       </div>
     </div>
@@ -2466,8 +2477,7 @@
       let scrollLeft;
 
       track.addEventListener('pointerdown', (e) => {
-        if (e.pointerType !== 'mouse') return;
-        if (e.button !== 0) return;
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
         e.preventDefault();
         isMouseDragging = true;
         track.classList.add('active');
@@ -2558,9 +2568,8 @@
       const delay = allGlobes.length * 90 + 150;
       setTimeout(() => { toggleBusy = false; }, delay);
 
-      ['pol1', 'pol2', 'pol3', 'pol4', 'pol5', 'pol6', 'pol7', 'pol8', 'pol9', 'pol10', 'pol11', 'pol12', 'pol13', 'pol14', 'pol15', 'pol16', 'pol17'].forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('show');
+      document.querySelectorAll('.polaroid').forEach((el) => {
+        el.classList.add('show');
       });
     }
 
