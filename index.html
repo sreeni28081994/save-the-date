@@ -2529,11 +2529,10 @@
       const delay = allGlobes.length * 90 + 150;
       setTimeout(() => { toggleBusy = false; }, delay);
 
-      setTimeout(() => {
-        ['pol1', 'pol2', 'pol3', 'pol4', 'pol5', 'pol6', 'pol7', 'pol8', 'pol9', 'pol10', 'pol11', 'pol12', 'pol13', 'pol14', 'pol15', 'pol16', 'pol17'].forEach((id, i) => {
-          setTimeout(() => { const el = document.getElementById(id); if (el) el.classList.add('show'); }, i * 100);
-        });
-      }, delay + 200);
+      ['pol1', 'pol2', 'pol3', 'pol4', 'pol5', 'pol6', 'pol7', 'pol8', 'pol9', 'pol10', 'pol11', 'pol12', 'pol13', 'pol14', 'pol15', 'pol16', 'pol17'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('show');
+      });
     }
 
     function turnOff() {
